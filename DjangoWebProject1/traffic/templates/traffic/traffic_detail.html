@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load tz %}
+
+{% block content %}
+<div class="border round">
+    <h1 class="my-5">From {{traffic_detail.start_location.address}}</h1>
+    <h1 class="my-5">To {{traffic_detail.end_location.address}}</h1>
+    <h3>Travel time: {{traffic_detail.duration}}</h3>
+    <p>Datetime: {{traffic_detail.created|localtime}}</p>
+</div>
+
+<a href="{% url 'traffic.list' %}" class="btn btn-secondary my-5">Back</a>
+{% endblock %}

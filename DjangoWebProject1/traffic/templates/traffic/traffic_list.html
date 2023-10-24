@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="my-5">Traffic History:</h1>
+
+<div class="row row-cols3 g-2">
+    {% for traffic_report in traffic_list %}
+    <div class="col">
+        <div class="p-3 border">
+            <a href="{% url 'traffic.detail' pk=traffic_report.id %}" class="text-dark text-decoration-non">
+                <h3>{{traffic_report.created}}</h3>
+            </a>
+            <p>{{traffic_report.duration}}</p>
+            <p>From {{traffic_report.start_location.address}}</p>
+            <p>To {{traffic_report.end_location.address}}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
